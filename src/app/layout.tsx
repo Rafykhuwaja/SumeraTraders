@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-[#e87b51]/50 via-black/15 to-[#a7d8de]/30 text-white`}>
+      <body className={`${inter.className} bg-gray-900`}>
+      <div className="min-h-screen bg-gradient-to-br from-[#e87b51]/50 via-black/15 to-[#a7d8de]/30 text-white">
+
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-grow">
@@ -29,6 +31,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+      </div>
       </body>
     </html>
   );

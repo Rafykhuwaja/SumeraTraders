@@ -17,7 +17,7 @@ const HeroCarousel: React.FC = () => {
   const slides: HeroSlide[] = [
     {
       id: 1,
-      image: "/images/BannerImage1.jpg",
+      image: "/images/banner-image1.jpg",
       alt: "Naturally Formed Salt Crystals",
       heading: "Naturally Formed Salt Crystals",
       subheading:
