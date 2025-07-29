@@ -17,7 +17,7 @@ const HeroCarousel: React.FC = () => {
     },
     {
       id: 2,
-      image: "/images/BannerImage2.jpg",
+      image: "/images/bannerimage2.jpg",
       alt: "Premium Salt Collection",
       heading: "Premium Salt Collection",
       subheading:
@@ -25,7 +25,7 @@ const HeroCarousel: React.FC = () => {
     },
     {
       id: 3,
-      image: "/images/BannerImage2.jpg",
+      image: "/images/bannerimage2.jpg",
       alt: "Crystal Healing & Wellness",
       heading: "Crystal Healing & Wellness",
       subheading:
@@ -72,7 +72,7 @@ const HeroCarousel: React.FC = () => {
           >
             {/* Background Image */}
             <Image
-              src={slide.image}
+              src={`${slide.image}`}
               alt={slide.alt}
               fill
               className="object-cover"
