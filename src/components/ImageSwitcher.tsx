@@ -1,7 +1,7 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { Sparkles } from 'lucide-react';
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { Sparkles } from "lucide-react";
 
 interface SlideImage {
   id: number;
@@ -17,25 +17,28 @@ const ImageSwitcher: React.FC = () => {
   const images: SlideImage[] = [
     {
       id: 1,
-      src: "/images/animateImage1.jpg",
-      alt: 'Naturally Formed Salt Crystals',
-      title: 'Naturally Formed Salt Crystals',
-      subtitle: 'Pure Himalayan mineral formations crafted by nature over millions of years'
+      src: "/images/animateImage2.jpg",
+      alt: "Naturally Formed Salt Crystals",
+      title: "Naturally Formed Salt Crystals",
+      subtitle:
+        "Pure Himalayan mineral formations crafted by nature over millions of years",
     },
     {
       id: 2,
       src: "/images/animateImage2.jpg",
-      alt: 'Artisanal Salt Lamps',
-      title: 'Artisanal Salt Lamps',
-      subtitle: 'Handcrafted illumination that brings warmth and wellness to your space'
+      alt: "Artisanal Salt Lamps",
+      title: "Artisanal Salt Lamps",
+      subtitle:
+        "Handcrafted illumination that brings warmth and wellness to your space",
     },
     {
       id: 3,
       src: "/images/animateImage3.jpg",
-      alt: 'Premium Salt Collection',
-      title: 'Premium Salt Collection',
-      subtitle: 'Curated selection of the finest Himalayan salt products for your home'
-    }
+      alt: "Premium Salt Collection",
+      title: "Premium Salt Collection",
+      subtitle:
+        "Curated selection of the finest Himalayan salt products for your home",
+    },
   ];
 
   useEffect(() => {
@@ -54,7 +57,7 @@ const ImageSwitcher: React.FC = () => {
           <div
             key={image.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
+              index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           >
             <Image
@@ -65,10 +68,10 @@ const ImageSwitcher: React.FC = () => {
               sizes="100vw"
               priority={index === 0}
             />
-            
+
             {/* Dark Overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-            
+
             {/* Glassmorphic overlay */}
             <div className="absolute inset-0 bg-black/20 backdrop-blur-[0.5px]"></div>
           </div>
@@ -89,17 +92,17 @@ const ImageSwitcher: React.FC = () => {
 
           {/* Dynamic Text Content */}
           <div className="space-y-4">
-            <h2 
+            <h2
               key={`title-${currentIndex}`}
               className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight animate-fade-in"
             >
               {images[currentIndex].title}
             </h2>
-            
-            <p 
+
+            <p
               key={`subtitle-${currentIndex}`}
               className="text-white/90 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed animate-fade-in"
-              style={{ animationDelay: '0.3s' }}
+              style={{ animationDelay: "0.3s" }}
             >
               {images[currentIndex].subtitle}
             </p>
@@ -126,16 +129,14 @@ const ImageSwitcher: React.FC = () => {
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-white scale-125'
-                  : 'bg-white/40 hover:bg-white/60'
+                  ? "bg-white scale-125"
+                  : "bg-white/40 hover:bg-white/60"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
       </div>
-
-      
 
       <style jsx>{`
         @keyframes fade-in {
@@ -148,20 +149,21 @@ const ImageSwitcher: React.FC = () => {
             transform: translateY(0);
           }
         }
-        
+
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) rotate(0deg);
           }
           50% {
             transform: translateY(-10px) rotate(180deg);
           }
         }
-        
+
         .animate-fade-in {
           animation: fade-in 0.8s ease-out forwards;
         }
-        
+
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }

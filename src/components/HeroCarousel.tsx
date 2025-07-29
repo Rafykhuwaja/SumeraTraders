@@ -1,7 +1,7 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface HeroSlide {
   id: number;
@@ -17,25 +17,28 @@ const HeroCarousel: React.FC = () => {
   const slides: HeroSlide[] = [
     {
       id: 1,
-      image: '/images/BannerImage1.jpg',
-      alt: 'Naturally Formed Salt Crystals',
-      heading: 'Naturally Formed Salt Crystals',
-      subheading: 'Discover the pure essence of Himalayan minerals crafted by nature over millions of years'
+      image: "/images/BannerImage1.jpg",
+      alt: "Naturally Formed Salt Crystals",
+      heading: "Naturally Formed Salt Crystals",
+      subheading:
+        "Discover the pure essence of Himalayan minerals crafted by nature over millions of years",
     },
     {
       id: 2,
-      image: '/images/BannerImage2.jpg',
-      alt: 'Premium Salt Collection',
-      heading: 'Premium Salt Collection',
-      subheading: 'Handcrafted artisanal products that bring wellness and beauty to your everyday life'
+      image: "/images/BannerImage2.jpg",
+      alt: "Premium Salt Collection",
+      heading: "Premium Salt Collection",
+      subheading:
+        "Handcrafted artisanal products that bring wellness and beauty to your everyday life",
     },
     {
       id: 3,
-      image: '/images/BannerImage2.jpg',
-      alt: 'Crystal Healing & Wellness',
-      heading: 'Crystal Healing & Wellness',
-      subheading: 'Experience the therapeutic benefits and natural energy of authentic Himalayan salt'
-    }
+      image: "/images/BannerImage2.jpg",
+      alt: "Crystal Healing & Wellness",
+      heading: "Crystal Healing & Wellness",
+      subheading:
+        "Experience the therapeutic benefits and natural energy of authentic Himalayan salt",
+    },
   ];
 
   // Auto slide functionality
@@ -68,11 +71,11 @@ const HeroCarousel: React.FC = () => {
           <div
             key={slide.id}
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              index === currentSlide 
-                ? 'opacity-100 translate-x-0' 
-                : index < currentSlide 
-                  ? 'opacity-0 -translate-x-full' 
-                  : 'opacity-0 translate-x-full'
+              index === currentSlide
+                ? "opacity-100 translate-x-0"
+                : index < currentSlide
+                  ? "opacity-0 -translate-x-full"
+                  : "opacity-0 translate-x-full"
             }`}
           >
             {/* Background Image */}
@@ -84,10 +87,10 @@ const HeroCarousel: React.FC = () => {
               sizes="100vw"
               priority={index === 0}
             />
-            
+
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-black/40"></div>
-            
+
             {/* Additional Gradient Overlay for Better Text Contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
           </div>
@@ -99,21 +102,21 @@ const HeroCarousel: React.FC = () => {
         <div className="text-center px-6 sm:px-8 lg:px-12 max-w-5xl">
           <div className="space-y-6">
             {/* Main Heading */}
-            <h1 
+            <h1
               key={`heading-${currentSlide}`}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-slide-up"
             >
               {slides[currentSlide].heading}
             </h1>
-            
+
             {/* Subheading */}
-            <p 
+            <p
               key={`subheading-${currentSlide}`}
               className="text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed animate-slide-up-delay"
             >
               {slides[currentSlide].subheading}
             </p>
-            
+
             {/* Call to Action Button (Optional) */}
             <div className="pt-8">
               <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-300 animate-slide-up-delay-2">
@@ -132,7 +135,7 @@ const HeroCarousel: React.FC = () => {
       >
         <ChevronLeft className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
       </button>
-      
+
       <button
         onClick={goToNext}
         className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-sm border border-white/20 text-white p-3 rounded-full hover:bg-white/20 hover:scale-110 transition-all duration-300 group"
@@ -150,8 +153,8 @@ const HeroCarousel: React.FC = () => {
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'w-12 h-3 bg-white rounded-full'
-                  : 'w-3 h-3 bg-white/50 rounded-full hover:bg-white/80'
+                  ? "w-12 h-3 bg-white rounded-full"
+                  : "w-3 h-3 bg-white/50 rounded-full hover:bg-white/80"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -161,7 +164,7 @@ const HeroCarousel: React.FC = () => {
 
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
-        <div 
+        <div
           className="h-full bg-white transition-all duration-300 ease-linear"
           style={{
             width: `${((currentSlide + 1) / slides.length) * 100}%`,
@@ -181,15 +184,15 @@ const HeroCarousel: React.FC = () => {
             transform: translateY(0);
           }
         }
-        
+
         .animate-slide-up {
           animation: slide-up 0.8s ease-out forwards;
         }
-        
+
         .animate-slide-up-delay {
           animation: slide-up 0.8s ease-out 0.2s both;
         }
-        
+
         .animate-slide-up-delay-2 {
           animation: slide-up 0.8s ease-out 0.4s both;
         }
