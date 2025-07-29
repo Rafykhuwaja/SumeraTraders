@@ -1,0 +1,35 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Sumera Traders - Premium Crystals & Artisanal Salts",
+  description: "Discover the finest collection of premium crystals and artisanal salts. Experience natural beauty and wellness with our curated products.",
+    icons: {
+    icon: ["/favicon.ico?v=4"],
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-[#e87b51]/50 via-black/15 to-[#a7d8de]/30 text-white`}>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}
