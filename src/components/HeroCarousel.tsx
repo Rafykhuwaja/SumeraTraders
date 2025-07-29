@@ -3,18 +3,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-interface HeroSlide {
-  id: number;
-  image: string;
-  alt: string;
-  heading: string;
-  subheading: string;
-}
-
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides: HeroSlide[] = [
+  const slides = [
     {
       id: 1,
       image: "/images/bannerimage1.jpg",
