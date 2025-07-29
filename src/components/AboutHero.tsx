@@ -19,7 +19,7 @@ const HeroBanner: React.FC = () => {
 const slides: SlideData[] = [
   {
     id: 1,
-    image: "/images/BannerImage1.jpg",
+    image: "/images/banner-image1.jpg",
     title: "Our Crystal Heritage",
     subtitle: "Crafted by Earth, Delivered with Care",
     description: "At the heart of our journey lies a passion for authentic crystals. Each piece is ethically sourced and carefully selected to share the earth’s natural energy with you."
