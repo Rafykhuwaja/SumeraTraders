@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 interface SlideData {
   id: number;
@@ -16,35 +17,37 @@ const HeroBanner: React.FC = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
-const slides: SlideData[] = [
-  {
-    id: 1,
-    image: "/images/banner-image1.jpg",
-    title: "Our Crystal Heritage",
-    subtitle: "Crafted by Earth, Delivered with Care",
-    description: "At the heart of our journey lies a passion for authentic crystals. Each piece is ethically sourced and carefully selected to share the earth’s natural energy with you."
-  },
-  {
-    id: 2,
-    image: "/images/BannerImage2.jpg",
-    title: "Himalayan Salt Origins",
-    subtitle: "Nature’s Purest Wellness Gift",
-    description: "Our artisanal salts come straight from the ancient Himalayan mountains, hand-extracted and processed without chemicals to preserve their natural healing properties."
-  },
-  {
-    id: 3,
-    image: "/images/BannerImage3.jpg",
-    title: "Healing with Purpose",
-    subtitle: "Energy That Inspires",
-    description: "Every stone in our collection tells a story of renewal and balance. Our mission is to bring these powerful elements into your life with integrity and love."
-  }
-];
-
+  const slides: SlideData[] = [
+    {
+      id: 1,
+      image: "/images/bannerimage1.jpg",
+      title: "Our Crystal Heritage",
+      subtitle: "Crafted by Earth, Delivered with Care",
+      description:
+        "At the heart of our journey lies a passion for authentic crystals. Each piece is ethically sourced and carefully selected to share the earth’s natural energy with you.",
+    },
+    {
+      id: 2,
+      image: "/images/bannerimage2.jpg",
+      title: "Himalayan Salt Origins",
+      subtitle: "Nature’s Purest Wellness Gift",
+      description:
+        "Our artisanal salts come straight from the ancient Himalayan mountains, hand-extracted and processed without chemicals to preserve their natural healing properties.",
+    },
+    {
+      id: 3,
+      image: "/images/bannerimage3.jpg",
+      title: "Healing with Purpose",
+      subtitle: "Energy That Inspires",
+      description:
+        "Every stone in our collection tells a story of renewal and balance. Our mission is to bring these powerful elements into your life with integrity and love.",
+    },
+  ];
 
   // Auto-slide functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
@@ -81,7 +84,7 @@ const slides: SlideData[] = [
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
             <img
@@ -109,9 +112,11 @@ const slides: SlideData[] = [
       <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           {/* Animated Content */}
-          <div className={`transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+          <div
+            className={`transition-all duration-1000 ease-out ${
+              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             {/* Subtitle */}
             <div className="mb-6 animate-slide-in-from-left">
               <span className="inline-block px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/90 text-sm sm:text-base font-medium">
@@ -122,7 +127,7 @@ const slides: SlideData[] = [
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-slide-in-from-right">
               <span className="inline-block animate-fade-in-up">
-                {slides[currentSlide].title.split(' ').map((word, index) => (
+                {slides[currentSlide].title.split(" ").map((word, index) => (
                   <span
                     key={index}
                     className="inline-block mr-4 animate-word-reveal"
@@ -144,8 +149,18 @@ const slides: SlideData[] = [
               <button className="group px-8 py-4 bg-gradient-to-r from-[#e87b51] to-[#f4a76c] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out hover:from-[#f4a76c] hover:to-[#e87b51]">
                 <span className="flex items-center gap-2">
                   Explore Collection
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </span>
               </button>
@@ -175,12 +190,12 @@ const slides: SlideData[] = [
         </button>
       </div>
 
-   
-
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 right-8 z-20 animate-bounce">
         <div className="flex flex-col items-center gap-2 text-white/60">
-          <span className="text-sm font-medium rotate-90 origin-center whitespace-nowrap">Scroll</span>
+          <span className="text-sm font-medium rotate-90 origin-center whitespace-nowrap">
+            Scroll
+          </span>
           <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/60 to-transparent"></div>
           <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-scroll-indicator"></div>
@@ -201,11 +216,21 @@ const slides: SlideData[] = [
       {/* Custom CSS Animations */}
       <style jsx>{`
         @keyframes ken-burns {
-          0% { transform: scale(1.05) translateX(0) translateY(0); }
-          25% { transform: scale(1.08) translateX(-1%) translateY(-0.5%); }
-          50% { transform: scale(1.06) translateX(1%) translateY(1%); }
-          75% { transform: scale(1.09) translateX(-0.5%) translateY(-1%); }
-          100% { transform: scale(1.05) translateX(0) translateY(0); }
+          0% {
+            transform: scale(1.05) translateX(0) translateY(0);
+          }
+          25% {
+            transform: scale(1.08) translateX(-1%) translateY(-0.5%);
+          }
+          50% {
+            transform: scale(1.06) translateX(1%) translateY(1%);
+          }
+          75% {
+            transform: scale(1.09) translateX(-0.5%) translateY(-1%);
+          }
+          100% {
+            transform: scale(1.05) translateX(0) translateY(0);
+          }
         }
 
         .animate-ken-burns {
@@ -213,9 +238,16 @@ const slides: SlideData[] = [
         }
 
         @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          33% { transform: translateY(-10px) translateX(5px); }
-          66% { transform: translateY(5px) translateX(-5px); }
+          0%,
+          100% {
+            transform: translateY(0px) translateX(0px);
+          }
+          33% {
+            transform: translateY(-10px) translateX(5px);
+          }
+          66% {
+            transform: translateY(5px) translateX(-5px);
+          }
         }
 
         .animate-float {
@@ -233,8 +265,14 @@ const slides: SlideData[] = [
         }
 
         @keyframes slide-in-from-left {
-          0% { opacity: 0; transform: translateX(-50px); }
-          100% { opacity: 1; transform: translateX(0); }
+          0% {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
 
         .animate-slide-in-from-left {
@@ -242,8 +280,14 @@ const slides: SlideData[] = [
         }
 
         @keyframes slide-in-from-right {
-          0% { opacity: 0; transform: translateX(50px); }
-          100% { opacity: 1; transform: translateX(0); }
+          0% {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
 
         .animate-slide-in-from-right {
@@ -253,8 +297,14 @@ const slides: SlideData[] = [
         }
 
         @keyframes slide-in-from-bottom {
-          0% { opacity: 0; transform: translateY(30px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         .animate-slide-in-from-bottom {
@@ -264,8 +314,14 @@ const slides: SlideData[] = [
         }
 
         @keyframes fade-in-up-delayed {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         .animate-fade-in-up-delayed {
@@ -275,8 +331,14 @@ const slides: SlideData[] = [
         }
 
         @keyframes word-reveal {
-          0% { opacity: 0; transform: translateY(20px) rotateX(90deg); }
-          100% { opacity: 1; transform: translateY(0) rotateX(0deg); }
+          0% {
+            opacity: 0;
+            transform: translateY(20px) rotateX(90deg);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+          }
         }
 
         .animate-word-reveal {
@@ -285,9 +347,18 @@ const slides: SlideData[] = [
         }
 
         @keyframes scroll-indicator {
-          0% { opacity: 1; transform: translateY(0); }
-          50% { opacity: 0.3; transform: translateY(8px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          50% {
+            opacity: 0.3;
+            transform: translateY(8px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         .animate-scroll-indicator {

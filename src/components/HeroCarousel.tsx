@@ -72,7 +72,7 @@ const HeroCarousel: React.FC = () => {
           >
             {/* Background Image */}
             <Image
-              src={`${slide.image}`}
+              src={slide.image}
               alt={slide.alt}
               fill
               className="object-cover"
